@@ -4,3 +4,4 @@ This repository contains code for an interactive information web app, created fo
 
 Jiaxin Ma
 Karena Li
+Cas Cheng
