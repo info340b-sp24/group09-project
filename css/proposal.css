@@ -3,9 +3,7 @@ p {
 }
 
 body {
-    font-family: Times New Roman, sans-serif;
-}
-
-h1 {
-    color: Pink;
-}
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
