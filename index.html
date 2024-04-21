@@ -48,36 +48,84 @@
   </header>
   <main>
     <div class="body-container">
-      <div class="flex-container">
+      <button class="btn btn-primary btn-light d-block d-md-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Hide filter
+      </button>
+      <div class="flex-container" id="collapseExample">
         <section class="filter">
+          <!-- searchbox -->
           <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Search</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="your destination">
+            <label for="Searchkeyword" class="form-label">Search</label>
+            <input type="text" class="form-control" id="Searchkeyword" placeholder="your destination">
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Activities
-            </label>
+          <!-- filter1 -->
+          <div>
+            <p>Activity</p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Indoor
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Outdoor
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Resturant
-            </label>
+          <!-- filter2 -->
+          <div>
+            <p>Resturant</p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Brunch
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Dessert
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Late Night
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Hotel
-            </label>
+          <!-- filter3 -->
+          <div>
+            <p>Hotel</p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Free parking
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Pet-friendly
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Fitness center
+              </label>
+            </div>
           </div>
-          <label for="customRange1" class="form-label">budget range</label>
-          <input type="range" class="form-range" id="customRange1">
+          <!-- range -->
+          <div>
+            <label for="budgetRange" class="form-label">Budget range</label>
+            <input type="range" class="form-range" id="budgetRange">
+          </div>
           <button type="button" class="btn btn-lg btn-primary">Apply</button>
         </section>
-
-
       </div>
 
       <section>
@@ -87,6 +135,7 @@
             <div class="card-body">
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
+                
             </div>
           </div>
           <div class="card" style="width: 18rem;">
@@ -99,13 +148,13 @@
           <div class="card" style="width: 18rem;">
             <img src="img/Pike.jpg" class="card-img-top" alt="Neon-decorated market full of people">
             <div class="card-body">
+              <p class="card-text">Pike Place Market</p>
               <p class="card-text">Pike Place Market is Seattle's original and largest incubator of small, independent
                 businesses.</p>
             </div>
           </div>
         </div>
       </section>
-
     </div>
   </main>
 
