@@ -76,9 +76,11 @@ section {
 .card img{
   max-height: 140px;
 }
-
+.detail-image-size{
+  max-width: 400px;
+}
 footer {
-  position: absolute;
+  position: sticky;
   bottom: 0;
 }
 
