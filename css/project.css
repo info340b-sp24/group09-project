@@ -1,0 +1,30 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.926);
+    padding: 2rem 1em;
+    background-color: #82898D;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icon {
+    width: 45px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  h1 {
+    font-family: sans-serif;
+    margin-bottom: 0;
+  }
+  
+
+  .navbar-nav {
+    flex-direction: column;
+    text-align: right;
+  }
