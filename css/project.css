@@ -39,7 +39,7 @@ h1 {
 
 /* main content style*/
 main {
-  padding-left: 2rem;
+  padding: 2rem;
   box-sizing: border-box;
   flex-direction: column;
 }
@@ -131,11 +131,8 @@ form {
   gap: 10px;
 }
 
-label {
-  font-weight: bold;
-}
-
-input, button {
+input,
+button {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -159,10 +156,12 @@ button:hover {
   padding: 15px;
   border-radius: 5px;
 }
+
 .storyimage {
   max-width: 100%;
   height: auto;
 }
+
 .travelcard {
   display: flex;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -170,12 +169,14 @@ button:hover {
   border-radius: 8px;
   color: black;
   background-color: whitesmoke;
-  
+
 }
+
 .cardh {
   justify-content: center;
-  
+
 }
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .btn-light {
@@ -188,16 +189,9 @@ button:hover {
     flex-wrap: wrap;
   }
 
-}
+  .travelcard {
+    display: none;
 
-/* @media (min-width: 992px) {
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff(240, 250, 251, 0.926);
-    padding: 2rem 1em;
-    background-image: url("../img/city.jpg");
   }
 
-} */
+}
