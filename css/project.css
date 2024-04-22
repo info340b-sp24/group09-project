@@ -2,6 +2,7 @@ body {
   font-family: Comic Sans MS, Comic Sans, cursive;
 }
 
+/* header style */
 header {
   display: flex;
   justify-content: space-between;
@@ -26,16 +27,16 @@ h1 {
   margin-bottom: 0;
 }
 
-
+/* navigation style */
 .navbar-nav {
   flex-direction: column;
-  /* text-align: right; */
 }
 
 .navbar-nav .nav-link.active {
   color: white;
 }
 
+/* main content style*/
 main {
   padding-left: 2rem;
   box-sizing: border-box;
@@ -46,20 +47,22 @@ section {
   padding: 1em;
 }
 
+/* filter style */
 .filter p {
   font-size: 1.1em;
   padding-top: .2rem;
   margin-bottom: .2rem;
 }
 
-/* .flex-container {
-  display: flex;
-} */
-
 .body-container {
   display: flex;
 }
 
+.btn-light {
+  display: none;
+}
+
+/* card style */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -73,7 +76,8 @@ section {
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.23), 0 1px 3px rgba(0, 0, 0, 0.23);
 }
-.card img{
+
+.card img {
   max-height: 140px;
 }
 
@@ -85,9 +89,13 @@ section {
 .card-body .btn {
   margin-top: auto;
 }
-.detail-image-size{
+
+/* card detail style */
+.detail-image-size {
   max-width: 400px;
 }
+
+/* footer style */
 footer {
   position: sticky;
   bottom: 0;
@@ -98,6 +106,7 @@ footer {
   text-align: left;
 }
 
+/* post style */
 .post-container {
   display: flex;
   flex-wrap: wrap;
@@ -114,12 +123,7 @@ footer {
   box-sizing: border-box;
 }
 
-.btn-light {
-  display: none;
-}
-
-
-
+/* Responsive styles */
 @media (max-width: 768px) {
   .btn-light {
     display: none;
