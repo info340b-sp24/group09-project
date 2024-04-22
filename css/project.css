@@ -76,6 +76,15 @@ section {
 .card img{
   max-height: 140px;
 }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body .btn {
+  margin-top: auto;
+}
 .detail-image-size{
   max-width: 400px;
 }
