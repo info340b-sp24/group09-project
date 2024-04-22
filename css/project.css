@@ -7,7 +7,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff(240, 250, 251, 0.926);
   padding: 2rem 1em;
   background-color: #82898D;
 }
