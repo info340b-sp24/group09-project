@@ -124,6 +124,58 @@ footer {
   box-sizing: border-box;
 }
 
+/* budget page style */
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.details-container {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+}
+.storyimage {
+  width: 100%;
+  height: 65vh;
+}
+.travelcard {
+  display: flex;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* border: 2px solid black; */
+  border-radius: 8px;
+  color: black;
+  background-color: whitesmoke;
+  
+}
+.cardh {
+  justify-content: center;
+  
+}
 /* Responsive styles */
 @media (max-width: 768px) {
   .btn-light {
