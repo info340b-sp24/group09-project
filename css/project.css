@@ -24,6 +24,7 @@ header {
 }
 
 h1 {
+  color: white;
   margin-bottom: 0;
 }
 
@@ -134,4 +135,17 @@ footer {
     justify-content: start;
     flex-wrap: wrap;
   }
+
 }
+
+/* @media (min-width: 992px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff(240, 250, 251, 0.926);
+    padding: 2rem 1em;
+    background-image: url("../img/city.jpg");
+  }
+
+} */
