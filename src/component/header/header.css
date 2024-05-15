@@ -1,0 +1,43 @@
+.headerStyle {
+  background-color: rgb(55, 55, 55);
+  color: #fff;
+  padding: 1rem 0;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  margin-bottom: 20px; /* Ensure it appears above other content */
+}
+  .logo {
+    color: white;
+    margin-top: -5px;
+    margin-left: 1pc;
+    font-size: x-large;
+  }
+  
+  .navStyle {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    float: right;
+  }
+  
+  .navItemStyle {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  
+  .linkStyle {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .linkStyle:hover {
+    color: red;
+  }
+  

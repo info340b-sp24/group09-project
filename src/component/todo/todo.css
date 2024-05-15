@@ -1,0 +1,40 @@
+
+/* post style */
+.post-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+#post-title,
+#post-text {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+h1 {
+  color: black;
+  margin-bottom: 0;
+}
+input,
+button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.selection {
+  border: 2px solid black;
+  height: 40px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+.text {
+  width: 99.4%;
+  border: 2px solid;
+  border-radius: 8px;
+}
