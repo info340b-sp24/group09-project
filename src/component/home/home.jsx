@@ -52,11 +52,9 @@ export default function Home() {
       <div className="showcaseCardss">
         <div className="card1">
           <div className="cardi">
- HEAD
-            <img src={imagePath} alt="the content of planner" className="storyimage"/>
 
-            <img src={imagePath} alt="image in planner" className="storyimage" />
- 112c4651d0c70ab9b05fdc198780b18a325f1029
+            <img src={imagePath} alt="the content of planner" className="storyimage"/>
+ 
           </div>
           <div className="cardh">
             <h2 className="h3">Welcome to Trip Planner</h2>
