@@ -34,3 +34,11 @@
     color: red;
   }
   
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .btn-light {
+    display: none;
+  }
+
