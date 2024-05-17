@@ -18,7 +18,7 @@ export default function itinerary() {
                 Visit the
                 various stalls, shops, and eateries, and don't miss the famous Pike Place Fish Market.
             </p>
-            <img src={imgp} class="detail-image-size" />
+            <img src={imgp} class="detail-image-size" alt='description of place'/>
             <p> Evening:</p>
             <p> Dinner: Have dinner at Six Seven Restaurant</p>
             <p> Day 2:
