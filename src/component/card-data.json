@@ -1,46 +1,50 @@
-
 [
-    {
-      "image": "image/image_1.jpg",
-      "title": "Space Needle",
-      "description": "A beloved symbol of Seattle and a must-visit attraction for tourists and locals alike.",
-      "altTag": "Space Needle in Seattle",
-      "link": "/pike"
-    },
-    {
-      "image": "image/trophy.jpeg",
-      "title": "Trophy Cupcakes & Party",
-      "description": "Great place for cupcake and dessert.",
-      "altTag": "Colorful macarons",
-      "link": "/pike"
-    },
-    {
-      "image": "image/Pike.jpg",
-      "title": "Pike Place Market",
-      "description": "Pike Place Market is Seattle's original and largest incubator of small businesses.",
-      "altTag": "Neon-decorated farmer market",
-      "link": "/pike"
-    },
-    {
-      "image": "image/chihuly.jpg",
-      "title": "Chihuly Garden and Glass",
-      "description": "Chihuly Garden and Glass offers a mesmerizing journey through the incredible glass art of Dale Chihuly.",
-      "altTag": "Colorful glass exhibition",
-      "link": "/pike"
-    },
-    {
-      "image": "image/hotel.jpg",
-      "title": "Astra Hotel, Seattle",
-      "description": "A Tribute Portfolio Hotel by Marriott South Lake Union. A 4.0-star property.",
-      "altTag": "Clean hotel room",
-      "link": "/pike"
-    },
-    {
-      "image": "image/city.jpg",
-      "title": "Itinerary 1",
-      "description": "Two day one night trip. Explore the city and enjoy the sights.",
-      "altTag": "Lots of tall buildings",
-      "link": "/itinerary"
-    }
-  ]
-  
+  {
+    "image": "image/image_1.jpg",
+    "title": "Space Needle",
+    "description": "A beloved symbol of Seattle and a must-visit attraction for tourists and locals alike.",
+    "altTag": "Space Needle in Seattle",
+    "link": "/pike",
+    "attributes": ["Outdoor", "Late Night"]
+  },
+  {
+    "image": "image/trophy.jpeg",
+    "title": "Trophy Cupcakes & Party",
+    "description": "Great place for cupcake and dessert.",
+    "altTag": "Colorful macarons",
+    "link": "/pike",
+    "attributes": ["Indoor", "Dessert"]
+  },
+  {
+    "image": "image/Pike.jpg",
+    "title": "Pike Place Market",
+    "description": "Pike Place Market is Seattle's original and largest incubator of small businesses.",
+    "altTag": "Neon-decorated farmer market",
+    "link": "/pike",
+    "attributes": ["Outdoor", "Brunch", "Dessert", "Free parking"]
+  },
+  {
+    "image": "image/chihuly.jpg",
+    "title": "Chihuly Garden and Glass",
+    "description": "Chihuly Garden and Glass offers a mesmerizing journey through the incredible glass art of Dale Chihuly.",
+    "altTag": "Colorful glass exhibition",
+    "link": "/pike",
+    "attributes": ["Indoor"]
+  },
+  {
+    "image": "image/hotel.jpg",
+    "title": "Astra Hotel, Seattle",
+    "description": "A Tribute Portfolio Hotel by Marriott South Lake Union. A 4.0-star property.",
+    "altTag": "Clean hotel room",
+    "link": "/pike",
+    "attributes": ["Indoor", "Free parking", "Pet-friendly", "Fitness center"]
+  },
+  {
+    "image": "image/city.jpg",
+    "title": "Itinerary 1",
+    "description": "Two day one night trip. Explore the city and enjoy the sights.",
+    "altTag": "Lots of tall buildings",
+    "link": "/itinerary",
+    "attributes": ["Outdoor"]
+  }
+]

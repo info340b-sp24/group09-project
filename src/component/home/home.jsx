@@ -1,11 +1,6 @@
-import React from 'react';
+// import React from 'react';
+import React, { useState } from 'react';
 import imagePath from '../image/www.reallygreatsite.com.png';
-// import image1 from '../image/image_1.jpg';
-// import image2 from '../image/trophy.jpeg';
-// import image3 from '../image/Pike.jpg';
-// import image4 from '../image/chihuly.jpg';
-// import image5 from '../image/hotel.jpg';
-// import image6 from '../image/city.jpg';
 import cardData from '../card-data.json';
 
 
@@ -28,14 +23,29 @@ function PlaceCard(props) {
   );
 }
 
-function CardList(props) {
+function CardList({ filters }) {
+  const filteredData = cardData.filter(card => {
+    if (filters.length === 0) {
+      return true; 
+    }
+
+    for (let i = 0; i < filters.length; i++) {
+      if (card.attributes.includes(filters[i])) {
+        return true; 
+      }
+    }
+
+    return false; 
+  });
+
+
   return (
     <div className="card-container">
-      {cardData.map((card, index) => (
+      {filteredData.map((card, index) => (
         <PlaceCard
           key={index}
           image={card.image}
-          jobName={card.title}
+          title={card.title}
           description={card.description}
           altTag={card.altTag}
           link={card.link}
@@ -46,6 +56,17 @@ function CardList(props) {
 }
 
 export default function Home() {
+  const [selectedFilters, setSelectedFilters] = useState([]);
+
+  const handleCheckChange = (filter) => {
+    setSelectedFilters(prevState => {
+      if (prevState.includes(filter)) {
+        return prevState.filter(item => item !== filter);
+      } else {
+        return [...prevState, filter];
+      }
+    });
+  };
   return (
     <div>
       <br></br><br></br>
@@ -53,8 +74,8 @@ export default function Home() {
         <div className="card1">
           <div className="cardi">
 
-            <img src={imagePath} alt="the content of planner" className="storyimage"/>
- 
+            <img src={imagePath} alt="the content of planner" className="storyimage" />
+
           </div>
           <div className="cardh">
             <h2 className="h3">Welcome to Trip Planner</h2>
@@ -78,17 +99,18 @@ export default function Home() {
                 <label for="Searchkeyword" className="form-label">Search</label>
                 <input type="text" className="form-control" id="Searchkeyword" placeholder="destination" />
               </div>
+              <button type="button" className="btn btn-lg btn-primary">Search</button>
               {/* <!-- filter1 --> */}
               <div>
                 <p>Activity</p>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Indoor')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Indoor
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Outdoor')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Outdoor
                   </label>
@@ -98,19 +120,19 @@ export default function Home() {
               <div>
                 <p>Resturant</p>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Brunch')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Brunch
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Dessert')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Dessert
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Late Night')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Late Night
                   </label>
@@ -120,36 +142,37 @@ export default function Home() {
               <div>
                 <p>Hotel</p>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Free Parking')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Free parking
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Pet-friendly')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Pet-friendly
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Fitness center')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Fitness center
                   </label>
                 </div>
               </div>
               {/* <!-- range --> */}
-              <div>
+              {/* <div>
                 <label for="budgetRange" className="form-label">Budget range</label>
                 <input type="range" className="form-range" id="budgetRange" />
-              </div>
-              <button type="button" className="btn btn-lg btn-primary">Apply</button>
+              </div> */}
+
+
             </section>
 
           </div>
         </div>
         <div className='sec2'>
-          <CardList />
+          <CardList filters={selectedFilters} />
         </div>
       </div>
     </div>
