@@ -1,14 +1,11 @@
-.showcaseCardss{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.showcaseCardss {
+  display: none;
+
 }
 
 .storyimage {
-    width: 100%;
-    height: 35pc;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  max-width: 100%;
+  height: auto;
 }
 .sec {
     width: 100%;
@@ -74,10 +71,18 @@ section {
     margin-bottom: .2rem;
   }
   
-  .body-container {
-    display: flex;
-  }
   
   .btn-light {
     display: none;
+  }
+
+  @media (min-width: 568px) {
+  
+    .showcaseCardss{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  
   }

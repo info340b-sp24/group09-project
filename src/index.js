@@ -12,6 +12,7 @@ import Post from './component/post/post'
 import Itinerary from './component/itinerary/itinerary'
 import Pike from './component/pike/pike';
 import Footer from './component/footer/footer';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
