@@ -1,40 +1,38 @@
+.container {
+  padding: 20px;
+}
 
-/* post style */
+h1 {  
+  text-align: center;
+  color: black;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
 .post-container {
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
-#post-title,
-#post-text {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-h1 {
-  color: black;
-  margin-bottom: 0;
-}
-input,
+.inputs,
+.text,
 button {
+  display: block;
+  margin: 10px 0;
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
   box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
+
 .selection {
   border: 2px solid black;
   height: 40px;
-  border-radius: 8px;
-  margin-bottom: 18px;
-}
-.text {
-  width: 99.4%;
-  border: 2px solid;
-  border-radius: 8px;
+  border-radius: 10px;
+  margin-bottom: 8px;
 }

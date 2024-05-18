@@ -5,7 +5,7 @@ import './post.css';
 export default function Post() {
   return (
     <div>
-      <br></br><br></br>
+      <br></br>
       <section className="section-spacing">
         <h2 className='h2'>Travel tips</h2>
         <p className='para'> Before your journey, remember to take a look at your destination, pack light, and keep your essentials
