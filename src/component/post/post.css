@@ -6,3 +6,7 @@
     font-weight: bold;
     font-size: larger;
   }
+
+  .section-spacing {
+    margin-top: 2rem; 
+  }

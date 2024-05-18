@@ -5,40 +5,45 @@
   align-items: center;
   padding: 2rem 1em;
 }
-  .logo {
-    color: white;
-    margin-top: -5px;
-    margin-left: 1pc;
-    font-size: x-large;
-  }
-  
+
+.logo {
+  color: white;
+  margin-top: -5px;
+  margin-left: 1pc;
+  font-size: x-large;
+}
+
+.navStyle {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; 
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+
+.navItemStyle {
+  margin-right: 1rem;
+}
+
+
+.linkStyle {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.linkStyle:hover {
+  color: rgb(147, 204, 164);
+}
+
+.btn-light {
+  display: none;
+}
+
+@media (min-width: 769px) {
   .navStyle {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    float: right;
-  }
-  
-  .navItemStyle {
-    display: inline-block;
-    margin-right: 1rem;
-  }
-  
-  .linkStyle {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .linkStyle:hover {
-    color: red;
-  }
-  
-  .navbar-nav {
-    flex-direction: column;
+    flex-direction: row;
   }
 
-  .btn-light {
-    display: none;
-  }
-
+}

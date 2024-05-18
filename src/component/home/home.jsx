@@ -26,16 +26,16 @@ function PlaceCard(props) {
 function CardList({ filters }) {
   const filteredData = cardData.filter(card => {
     if (filters.length === 0) {
-      return true; 
+      return true;
     }
 
     for (let i = 0; i < filters.length; i++) {
       if (card.attributes.includes(filters[i])) {
-        return true; 
+        return true;
       }
     }
 
-    return false; 
+    return false;
   });
 
 
@@ -85,14 +85,16 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* new container start from here */}
       <div className='sec'>
+        <button class="btn btn-primary btn-light d-block d-md-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Hide filter
+        </button>
         <div className='sec1'>
-          <button class="btn btn-primary btn-light d-block d-md-none" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Hide filter
-          </button>
           <div class="flex-container" id="collapseExample">
+
             <section className="filter">
               {/* <!-- searchbox --> */}
               <div className="mb-3">
