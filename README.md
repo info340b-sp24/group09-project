@@ -1,7 +1,7 @@
-INFO 340 Project
+# INFO 340 Project
 This repository contains code for an interactive information web app, created for the Client-Side Web Development course at the UW iSchool.
 
-Jiaxin Ma Karena Li Cas Cheng
+Group members: Jiaxin Ma Karena Li Cas Cheng
 
 # Getting Started with Create React App
 
