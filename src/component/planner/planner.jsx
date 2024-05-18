@@ -1,11 +1,11 @@
 import React from 'react'
 import './planner.css'
 
-export default function planner() {
+export default function Planner() {
   return (
     <div>
       <br></br><br></br>
-      {/* style="margin-top: 20px;" */}
+
       <div id="trip-planner" >
       <h2>Create Your Trip Plan</h2>
       <form id="trip-form" />
@@ -18,7 +18,7 @@ export default function planner() {
         <label for="destinations">Specific Destinations:</label>
         <input className='inputs' type="text" id="destinations" />
         <button type="submit">Generate Itinerary</button>
-      {/* </form> */}
+
     </div>
     <section id="itinerary">
       <h2>Your Trip Itinerary</h2>

@@ -1,4 +1,3 @@
-// import React from 'react';
 import React, { useState } from 'react';
 import imagePath from '../image/www.reallygreatsite.com.png';
 import cardData from '../card-data.json';
@@ -162,13 +161,6 @@ export default function Home() {
                   </label>
                 </div>
               </div>
-              {/* <!-- range --> */}
-              {/* <div>
-                <label for="budgetRange" className="form-label">Budget range</label>
-                <input type="range" className="form-range" id="budgetRange" />
-              </div> */}
-
-
             </section>
 
           </div>

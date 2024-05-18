@@ -2,14 +2,14 @@ import React from 'react'
 import imgp from '../image/Pike.jpg';
 import './pike.css'
 
-export default function pike() {
+export default function Pike() {
   return (
     <div><br></br><br></br>
       <div class="body-container">
             <div class="detail">
                 <section>
                     <h2 className='h2'>Pike Place Market</h2>
-                    <img src={imgp} class="detail-image-size" />
+                    <img src={imgp} class="detail-image-size" alt='description of pike' />
                 </section>
                 <section>
                     <p>Description: Pike Place Market is Seattle's original and largest incubator of small, independent
