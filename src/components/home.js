@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import imagePath from '../image/www.reallygreatsite.com.png';
-import cardData from '../card-data.json';
-
-
-
-import './home.css';
+import cardData from '../data/card-data.json';
 import { Link } from 'react-router-dom';
 
 function PlaceCard(props) {

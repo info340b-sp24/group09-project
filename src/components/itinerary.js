@@ -1,5 +1,4 @@
 import React from 'react'
-import './itinerary.css'
 import imgp from '../image/Pike.jpg';
 
 export default function Itinerary() {

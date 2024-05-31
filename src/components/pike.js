@@ -1,6 +1,5 @@
 import React from 'react'
 import imgp from '../image/Pike.jpg';
-import './pike.css'
 
 export default function Pike() {
   return (

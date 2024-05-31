@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import Home from './component/home/home';
-import Planner from './component/planner/planner';
-import Todo from './component/todo/todo';
-import About from './component/about/about'
-import Contact from './component/contact/contact'
-import Post from './component/post/post'
-import Itinerary from './component/itinerary/itinerary'
-import Pike from './component/pike/pike';
-import Footer from './component/footer/footer';
+import Home from './components/home';
+import Planner from './components/planner';
+import Todo from './components/todo';
+import About from './components/about'
+import Contact from './components/contact'
+import Post from './components/post'
+import Itinerary from './components/home'
+import Pike from './components/pike';
+import Footer from './components/footer';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const router = createBrowserRouter(

@@ -1,5 +1,4 @@
 import React from 'react'
-import './todo.css';
 import { Link } from 'react-router-dom';
 export default function Todo() {
   return (
