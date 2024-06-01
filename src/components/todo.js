@@ -3,15 +3,8 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function Todo() {
+export default function Todo({posts, setPosts}) {
 
-  const [posts, setPosts] = useState([
-    {
-      id: 0,
-      title: "Travel Tips",
-      text: "Before your journey, remember to take a look at your destination, pack light, and keep your essentials handy. Stay aware of your surroundings, trust your instincts, and always have a backup plan. Embrace the adventure, try new things, and make memories that will last a lifetime!"
-    }
-  ]);
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [category, setCategory] = useState('');
@@ -39,7 +32,7 @@ export default function Todo() {
         <div className='section'>
           <h2>Posts</h2>
 
-          {posts && posts.map(post => (
+          {posts.map(post => (
             <div key={post.id}>
               <Link to={`/post/${post.id}`}>{post.title}</Link>
             </div>
@@ -47,8 +40,9 @@ export default function Todo() {
         </div>
         
         <div className='section'>
+        <br></br><br></br>
           <h2>Write a post</h2>
-          <div class="post-container">
+          <div className="post-container">
             <select name="category" id="post-category" className='selection' 
             value={category}
             onChange={(event) => setCategory(event.target.value)}>
@@ -65,7 +59,7 @@ export default function Todo() {
             onChange={(event) => setText(event.target.value)}></textarea>
             <input className='inputs' type="file" id="post-image" accept="image/*" 
             onChange={(event) => setImage(event.target.files[0])}/>
-            <button id="post-buttom" class="btn btn-lg btn-primary" onClick={handlePost}>Post</button>
+            <button id="post-button" className="btn btn-lg btn-primary" onClick={handlePost}>Post</button>
           </div>
         </div>
       </div>

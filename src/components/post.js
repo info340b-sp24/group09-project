@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 export default function Post({posts}) {
 
   const {id} = useParams();
-  const [post, setPost] = useState();
+  const [post, setPost] = useState(null);
 
   const [reply, setReply] = useState('');
   const [replies, setReplies] = useState([]);
@@ -32,13 +32,16 @@ export default function Post({posts}) {
 
   return (
     <div className='container'>
-      <br></br>
-      
+      {post && (
+        <>
         <section className="section-spacing">
           <h2 className='h2'>{post.title}</h2>
+          <br></br>
           <p className='para'>{post.text}</p>
         </section>
-      
+        </>
+        )
+      }
       
       
 
@@ -51,6 +54,7 @@ export default function Post({posts}) {
       </section>
 
       <section>
+        <br></br><br></br>
         <h3>Replies</h3>
         {replies.map(reply => (
           <div key={reply.id}>{reply.text}</div>
