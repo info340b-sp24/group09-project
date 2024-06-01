@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
@@ -22,7 +22,7 @@ const router = createBrowserRouter(
       <Route path="todo" element={<Todo />} />
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
-      <Route path="post" element={<Post />} />
+      <Route path="post/:id" element={<Post />} />
       <Route path="itinerary" element={<Itinerary />} />
       <Route path="pike" element={<Pike />} />
       <Route path="footer" element={<Footer />} />
