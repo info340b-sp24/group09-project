@@ -33,19 +33,21 @@ function CardList({ filters }) {
     return false;
   });
 
+  const card = filteredData.map((card, index) => (
+    <PlaceCard
+      key={index}
+      image={card.image}
+      title={card.title}
+      description={card.description}
+      altTag={card.altTag}
+      link={card.link}
+    />
+  ));
+
 
   return (
     <div className="card-container">
-      {filteredData.map((card, index) => (
-        <PlaceCard
-          key={index}
-          image={card.image}
-          title={card.title}
-          description={card.description}
-          altTag={card.altTag}
-          link={card.link}
-        />
-      ))}
+      {card}
     </div>
   );
 }
