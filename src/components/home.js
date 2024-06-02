@@ -18,54 +18,92 @@ function PlaceCard(props) {
   );
 }
 
-function CardList({ filters }) {
+function CardList({ filters, searchKeyword }) {
   const filteredData = cardData.filter(card => {
-    if (filters.length === 0) {
-      return true;
-    }
-
-    for (let i = 0; i < filters.length; i++) {
-      if (card.attributes.includes(filters[i])) {
-        return true;
-      }
-    }
-
-    return false;
+    const matchesFilters = filters.length === 0 || filters.some(filter => card.attributes.includes(filter));
+    const matchesSearch = !searchKeyword || card.title.toLowerCase().includes(searchKeyword.toLowerCase()) || card.description.toLowerCase().includes(searchKeyword.toLowerCase());
+    return matchesFilters && matchesSearch;
   });
 
-  const card = filteredData.map((card, index) => (
-    <PlaceCard
-      key={index}
-      image={card.image}
-      title={card.title}
-      description={card.description}
-      altTag={card.altTag}
-      link={card.link}
-    />
-  ));
-
+  if (filteredData.length === 0) {
+    return (
+      <div className="card-container">
+        <div className='sec2'>
+          <div class="alert alert-secondary" role="alert">
+            No results match your criteria. Please try adjusting your filters or search term.
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="card-container">
-      {card}
+      {filteredData.map((card, index) => (
+        <PlaceCard
+          key={index}
+          image={card.image}
+          title={card.title}
+          description={card.description}
+          altTag={card.altTag}
+          link={card.link}
+        />)
+      )}
     </div>
   );
 }
 
 export default function Home() {
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeSearchTerm, setActiveSearchTerm] = useState(''); 
+  const defaultCheckboxStates = {
+    Indoor: false,
+    Outdoor: false,
+    Brunch: false,
+    Dessert: false,
+    "Late Night": false,
+    "Free Parking": false,
+    "Pet-friendly": false,
+    "Fitness center": false
+};
+
+const [checkboxStates, setCheckboxStates] = useState(defaultCheckboxStates);
 
   const handleCheckChange = (filter) => {
-    setSelectedFilters(prevState => {
-      if (prevState.includes(filter)) {
-        return prevState.filter(item => item !== filter);
+    setSelectedFilters(prev => {
+      if (prev.includes(filter)) {
+        return prev.filter(item => item !== filter);
       } else {
-        return [...prevState, filter];
+        return [...prev, filter];
       }
     });
+    setCheckboxStates(prev => ({
+      ...prev,
+      [filter]: !prev[filter]
+  }));
   };
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearchSubmit = () => {
+    setActiveSearchTerm(searchTerm); 
+  };
+  
+
+
+  
+const handleClearFilters = () => {
+    setSelectedFilters([]);
+    setActiveSearchTerm('');
+    setSearchTerm('');
+    setCheckboxStates({...defaultCheckboxStates});
+};
+
   return (
-    <div>
+    <div >
       <br></br><br></br>
       <div className="showcaseCardss">
         <div className="card1">
@@ -75,7 +113,7 @@ export default function Home() {
 
           </div>
           <div className="cardh">
-            <h2 className="h3">Welcome to Trip Planner</h2>
+            <h2 >Welcome to Trip Planner</h2>
             <p><b>Plan your next adventure with ease using Trip Planner.
               Whether it's a family vacation, an adventure trip, or a weekend getaway, we've got you covered.
               Simply fill in your travel details and let us take care of the rest!</b></p>
@@ -95,80 +133,91 @@ export default function Home() {
             <section className="filter">
               {/* <!-- searchbox --> */}
               <div className="mb-3">
-                <label for="Searchkeyword" className="form-label">Search</label>
-                <input type="text" className="form-control" id="Searchkeyword" placeholder="destination" />
+                <label className="form-label">Search</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="destination"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                />
               </div>
-              <button type="button" className="btn btn-lg btn-primary">Search</button>
+              <button type="button" className="btn btn-primary" onClick={handleSearchSubmit}>Search</button>
               {/* <!-- filter1 --> */}
-              <div>
+              <div className='category'>
                 <p>Activity</p>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Indoor')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates.Indoor} onChange={() => handleCheckChange('Indoor')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Indoor
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Outdoor')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"  checked={checkboxStates.Outdoor}onChange={() => handleCheckChange('Outdoor')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Outdoor
                   </label>
                 </div>
               </div>
               {/* <!-- filter2 --> */}
-              <div>
+              <div className='category'>
                 <p>Resturant</p>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Brunch')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates.Brunch} onChange={() => handleCheckChange('Brunch')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Brunch
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Dessert')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates.Dessert}onChange={() => handleCheckChange('Dessert')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Dessert
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Late Night')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Late Night']} onChange={() => handleCheckChange('Late Night')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Late Night
                   </label>
                 </div>
               </div>
               {/* <!-- filter3 --> */}
-              <div>
+              <div className='category'>
                 <p>Hotel</p>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Free Parking')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Free Parking']}onChange={() => handleCheckChange('Free Parking')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Free parking
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Pet-friendly')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Pet-friendly']}onChange={() => handleCheckChange('Pet-friendly')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Pet-friendly
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" onChange={() => handleCheckChange('Fitness center')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Fitness center']}onChange={() => handleCheckChange('Fitness center')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Fitness center
                   </label>
                 </div>
+
+              </div>
+              <div>
+                <button type="button" className="btn btn-primary button-margin" onClick={handleClearFilters}>Clear All Filters</button>
               </div>
             </section>
 
           </div>
         </div>
         <div className='sec2'>
-          <CardList filters={selectedFilters} />
+          <CardList filters={selectedFilters} searchKeyword={activeSearchTerm} />
         </div>
+
       </div>
     </div>
 
   );
 
-}
+} 

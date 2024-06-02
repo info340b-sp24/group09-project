@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Planner() {
   return (
-    <div>
+    <div className='container'>
       <br></br><br></br>
 
       <div id="trip-planner" >

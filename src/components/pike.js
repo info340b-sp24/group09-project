@@ -3,7 +3,7 @@ import imgp from '../image/Pike.jpg';
 
 export default function Pike() {
   return (
-    <div><br></br><br></br>
+    <div className='container'><br></br><br></br>
       <div class="body-container">
             <div class="detail">
                 <section>

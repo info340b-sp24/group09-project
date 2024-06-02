@@ -35,7 +35,7 @@ export default function Contact() {
  };
 
   return (
-    <div>
+    <div className='container'>
       <br></br><br></br>
         <div>
         <h2 className='h2'>Get in Touch</h2>
