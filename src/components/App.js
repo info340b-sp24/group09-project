@@ -32,7 +32,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="post/:id" element={<Post posts={posts} />} />
         <Route path="itinerary" element={<Itinerary />} />
-        <Route path="pike" element={<Pike />} />
+        <Route path="/details/:title" element={<Pike />} />
       </Routes>
       <Footer />
     </div>

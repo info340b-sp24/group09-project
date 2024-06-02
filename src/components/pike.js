@@ -2,32 +2,28 @@ import React from 'react'
 import imgp from '../image/Pike.jpg';
 
 export default function Pike() {
-  return (
-    <div className='container'><br></br><br></br>
-      <div class="body-container">
-            <div class="detail">
-                <section>
-                    <h2 className='h2'>Pike Place Market</h2>
-                    <img src={imgp} class="detail-image-size" alt='description of pike' />
-                </section>
-                <section>
-                    <p>Description: Pike Place Market is Seattle's original and largest incubator of small, independent
-                        businesses.In addition, the Market is a vibrant and thriving historic neighborhood that includes
-                        five social service programs, 220+ independently owned shops & restaurants, 160+ craftspeople,
-                        70+
-                        farmers, 60+ permitted buskers, 450+ residents in the Market's affordable housing, and one
-                        foundation. Learn more about the Market community by tapping or clicking the buttons below.</p>
-                    <p>Operating Hour: 09:00 - 18:00</p>
-                    <p>Address:85 Pike St
-                        Seattle, WA 98101
-                        United States</p>
-                    <p>Minimum Cost: 0$</p>
-                    <p>Estimated Duration: 3hr</p>
-                    <a href="https://www.pikeplacemarket.org/about-pike-place-market/"> Source </a>
 
-                </section>
-            </div>
-        </div>
-    </div>
-  )
+    // const { title } = useParams();
+    // const place = cardData.find(p => p.title === decodeURIComponent(title));
+    // const {petName} = useParams();
+    // const petNameString = petName;
+  
+    // //pretend we loaded external data    
+    // let pet =  _.find(SAMPLE_DOGS, {name: petNameString});
+    // if (!place) {
+    //     return <div>Place not found!</div>;
+    // }
+    // return (
+    //     <div className='container'><br></br><br></br>
+    //         <div className='container'>
+    //             <h2>{place.title}</h2>
+    //             <img src={place.image} alt={place.altTag} />
+    //             <p>Description: {place.description}</p>
+    //             <p>Operating Hour: {place.operatingHours}</p>
+    //             <p>Address: {place.address}</p>
+    //             <p>Minimum Cost: {place.minimumCost}</p>
+    //             <p>Estimated Duration: {place.estimatedDuration}</p>
+    //         </div>
+    //     </div>
+    // )
 }

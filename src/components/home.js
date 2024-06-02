@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import imagePath from '../image/www.reallygreatsite.com.png';
 import cardData from '../data/card-data.json';
 import { Link } from 'react-router-dom';
+import { Carousel } from 'react-bootstrap';
 
 function PlaceCard(props) {
   const { image, title, description, altTag, link } = props;
@@ -36,19 +37,20 @@ function CardList({ filters, searchKeyword }) {
       </div>
     );
   }
+  const card = filteredData.map((card, index) => (
+    <PlaceCard
+      key={index}
+      image={card.image}
+      title={card.title}
+      description={card.description}
+      altTag={card.altTag}
+      link={card.link}
+    />
+  ));
 
   return (
     <div className="card-container">
-      {filteredData.map((card, index) => (
-        <PlaceCard
-          key={index}
-          image={card.image}
-          title={card.title}
-          description={card.description}
-          altTag={card.altTag}
-          link={card.link}
-        />)
-      )}
+      {card}
     </div>
   );
 }
@@ -56,7 +58,7 @@ function CardList({ filters, searchKeyword }) {
 export default function Home() {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeSearchTerm, setActiveSearchTerm] = useState(''); 
+  const [activeSearchTerm, setActiveSearchTerm] = useState('');
   const defaultCheckboxStates = {
     Indoor: false,
     Outdoor: false,
@@ -66,9 +68,9 @@ export default function Home() {
     "Free Parking": false,
     "Pet-friendly": false,
     "Fitness center": false
-};
+  };
 
-const [checkboxStates, setCheckboxStates] = useState(defaultCheckboxStates);
+  const [checkboxStates, setCheckboxStates] = useState(defaultCheckboxStates);
 
   const handleCheckChange = (filter) => {
     setSelectedFilters(prev => {
@@ -81,7 +83,7 @@ const [checkboxStates, setCheckboxStates] = useState(defaultCheckboxStates);
     setCheckboxStates(prev => ({
       ...prev,
       [filter]: !prev[filter]
-  }));
+    }));
   };
 
   const handleSearchChange = (e) => {
@@ -89,35 +91,63 @@ const [checkboxStates, setCheckboxStates] = useState(defaultCheckboxStates);
   };
 
   const handleSearchSubmit = () => {
-    setActiveSearchTerm(searchTerm); 
+    setActiveSearchTerm(searchTerm);
   };
-  
 
 
-  
-const handleClearFilters = () => {
+
+
+  const handleClearFilters = () => {
     setSelectedFilters([]);
     setActiveSearchTerm('');
     setSearchTerm('');
-    setCheckboxStates({...defaultCheckboxStates});
-};
+    setCheckboxStates({ ...defaultCheckboxStates });
+  };
 
   return (
     <div >
       <br></br><br></br>
       <div className="showcaseCardss">
-        <div className="card1">
-          <div className="cardi">
-
-            <img src={imagePath} alt="the content of planner" className="storyimage" />
-
-          </div>
-          <div className="cardh">
-            <h2 >Welcome to Trip Planner</h2>
-            <p><b>Plan your next adventure with ease using Trip Planner.
-              Whether it's a family vacation, an adventure trip, or a weekend getaway, we've got you covered.
-              Simply fill in your travel details and let us take care of the rest!</b></p>
-          </div>
+        <Carousel>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={imagePath}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>Discover Your Next Adventure</h3>
+              <p>Begin your journey by exploring ideal destinations</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={imagePath}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>Personalize Your Itinerary</h3>
+              <p>Create a customized travel plan that fits your budget</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={imagePath}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>Connect and Share</h3>
+              <p>Share your experience with friends and fellow travelers</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+        <div className="cardh">
+          <h2 >Welcome to Trip Planner</h2>
+          <p><b>Plan your next adventure with ease using Trip Planner.
+            Whether it's a family vacation, an adventure trip, or a weekend getaway, we've got you covered.
+            Simply fill in your travel details and let us take care of the rest!</b></p>
         </div>
       </div>
 
@@ -153,7 +183,7 @@ const handleClearFilters = () => {
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"  checked={checkboxStates.Outdoor}onChange={() => handleCheckChange('Outdoor')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates.Outdoor} onChange={() => handleCheckChange('Outdoor')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Outdoor
                   </label>
@@ -169,7 +199,7 @@ const handleClearFilters = () => {
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates.Dessert}onChange={() => handleCheckChange('Dessert')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates.Dessert} onChange={() => handleCheckChange('Dessert')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Dessert
                   </label>
@@ -185,19 +215,19 @@ const handleClearFilters = () => {
               <div className='category'>
                 <p>Hotel</p>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Free Parking']}onChange={() => handleCheckChange('Free Parking')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Free Parking']} onChange={() => handleCheckChange('Free Parking')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Free parking
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Pet-friendly']}onChange={() => handleCheckChange('Pet-friendly')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Pet-friendly']} onChange={() => handleCheckChange('Pet-friendly')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Pet-friendly
                   </label>
                 </div>
                 <div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Fitness center']}onChange={() => handleCheckChange('Fitness center')} />
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={checkboxStates['Fitness center']} onChange={() => handleCheckChange('Fitness center')} />
                   <label className="form-check-label" for="flexCheckDefault">
                     Fitness center
                   </label>
