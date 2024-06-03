@@ -9,7 +9,7 @@ import About from './about';
 import Contact from './contact';
 import Post from './post';
 import Itinerary from './itinerary';
-import Pike from './pike';
+import Pike from './detail';
 import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {

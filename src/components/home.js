@@ -13,7 +13,7 @@ function PlaceCard(props) {
       <div className="card-body">
         <p className="card-text">{title}</p>
         <p className="card-text">{description}</p>
-        <Link to={link} className="btn btn-primary">Learn more</Link>
+        <Link to={`/details/${title}`} className="btn btn-primary">Learn more</Link>
       </div>
     </div>
   );
@@ -154,7 +154,7 @@ export default function Home() {
       </div>
 
       {/* new container start from here */}
-      <div className='sec'>
+      <div className='sec container'>
         <button class="btn btn-primary btn-light d-block d-md-none" type="button" data-bs-toggle="collapse"
           data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Hide filter

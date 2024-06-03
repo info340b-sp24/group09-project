@@ -224,7 +224,7 @@ footer {
 .card {
   flex: 0 0 280px;
   background-color: white;
-  margin: 0.5rem;
+  margin: 0.75rem;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.23), 0 1px 3px rgba(0, 0, 0, 0.23);
 }
@@ -285,6 +285,7 @@ footer {
     width: 25%;
     height: auto;
     display: flex;
+    padding-left: 60px;
   }
 
   .sec2 {
@@ -430,3 +431,27 @@ button {
   border: 1px solid #ccc; 
   cursor: pointer;
 }
+
+/* detail */
+.detail-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #333; 
+}
+.detail-style h2 {
+  color: #333; 
+  margin-bottom: 20px;
+}
+
+.fixed-size-image{
+  width: 80%;
+  margin-bottom: 20px;
+}
+
