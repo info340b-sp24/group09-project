@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import cardData from '../data/card-data.json';
 
 
 
@@ -9,6 +10,11 @@ export default function Todo({posts, setPosts}) {
   const [text, setText] = useState('');
   const [category, setCategory] = useState('');
   const [image, setImage] = useState(null);
+
+  const [cardTitle, setCardTitle] = useState([]);
+
+  const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [appliedCategory, setAppliedCategory] = useState('');
 
   const handlePost = () => {
 
@@ -21,34 +27,65 @@ export default function Todo({posts, setPosts}) {
     setImage(null);
   };
 
+  useEffect(
+    () => {
+      const titles = cardData.map(card => card.title);
+      setCardTitle(titles);
+      setFilteredPosts(posts);
+    },
+    [posts]
+  );
+
+  const handleCategory = (currCategory) => {
+
+    if (currCategory === appliedCategory) {
+
+      setFilteredPosts(posts);
+
+      setAppliedCategory('');
+      return;
+    }
+    
+
+    const filteredPosts = posts.filter(post => post.category === currCategory);
+
+  setFilteredPosts(filteredPosts);
+  setAppliedCategory(currCategory);
+  };
+
   return (
 
       <div className='container'>
 
         <div className='section'>
-          <h1>Welcome to Our Community</h1>
+        <br></br><br></br>
+          <h2 className='web_title'>Welcome to Our Community</h2>
         </div>
 
         <div className='section'>
-          <h2>Posts</h2>
+          <h3>Posts</h3>
 
-          {posts.map(post => (
-            <div key={post.id}>
-              <Link to={`/post/${post.id}`}>{post.title}</Link>
+          {filteredPosts.map((post) => (
+            <div className='post-header' key={post.id}>
+              <Link to={`/post/${post.id}`}><h5>{post.title}</h5></Link>
+               {post.category && (<small className='post-category' onClick={() => handleCategory(post.category)}>{post.category}</small>)}
             </div>
           ))}
         </div>
         
         <div className='section'>
         <br></br><br></br>
-          <h2>Write a post</h2>
+          <h3>Write a post</h3>
           <div className="post-container">
             <select name="category" id="post-category" className='selection' 
             value={category}
             onChange={(event) => setCategory(event.target.value)}>
-              <option value="Experience">Evaluation</option>
-              <option value="Question">Question</option>
-              <option value="Moment">Moment</option>
+              <option value="" disabled>Evaluation</option>
+              {
+                cardTitle.map((title, index) => (
+                  <option key={index} value={title}>{title}</option>
+                ))
+              }
             </select>
 
             <input className='inputs' type="post-title" id="title" placeholder="Enter title" 

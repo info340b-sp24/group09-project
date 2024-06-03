@@ -313,7 +313,6 @@ p {
   margin-bottom: 24px;
 }
 
-/*pike.css -- Nothing*/
 
 /*planner.css*/
 .form {
@@ -381,7 +380,7 @@ label {
   padding: 20px;
 }
 
-h1 {
+.web_title {
   text-align: center;
   color: black;
 }
@@ -414,4 +413,20 @@ button {
   height: 40px;
   border-radius: 10px;
   margin-bottom: 8px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-category {
+  background-color: #f8ecec; 
+  color: #333; 
+  font-size: 0.8em;
+  padding: 3px 8px; 
+  border-radius: 5px; 
+  border: 1px solid #ccc; 
+  cursor: pointer;
 }

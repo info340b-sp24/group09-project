@@ -6,7 +6,7 @@ export default function Planner() {
       <br></br><br></br>
 
       <div id="trip-planner" >
-      <h2>Create Your Trip Plan</h2>
+      <h2 className='web_title'>Create Your Trip Plan</h2>
       <form id="trip-form" />
         <label for="travel-dates">Travel Dates:</label>
         <input className='inputs' type="date" id="travel-dates" required /> 
