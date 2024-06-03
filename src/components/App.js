@@ -15,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 function App() {
   const [posts, setPosts] = useState([
     {
-      id: 0,
+      id: 1,
       title: "Travel Tips",
       text: "Before your journey, remember to take a look at your destination, pack light, and keep your essentials handy. Stay aware of your surroundings, trust your instincts, and always have a backup plan. Embrace the adventure, try new things, and make memories that will last a lifetime!"
     }
