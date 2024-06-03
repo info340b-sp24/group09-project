@@ -143,11 +143,13 @@ export default function Home() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+        <div className='container'>
         <div className="cardh">
           <h2 >Welcome to Trip Planner</h2>
           <p><b>Plan your next adventure with ease using Trip Planner.
             Whether it's a family vacation, an adventure trip, or a weekend getaway, we've got you covered.
             Simply fill in your travel details and let us take care of the rest!</b></p>
+        </div>
         </div>
       </div>
 
