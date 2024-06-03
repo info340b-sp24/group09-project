@@ -8,7 +8,6 @@ export default function Pike() {
     const { title } = useParams();
     const place = title;
 
-    //pretend we loaded external data    
     let thePlace = _.find(cardData, { title: title });
     if (!thePlace) {
         return <div>Place not found!</div>;
