@@ -1,46 +1,70 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getDatabase, ref, onValue, push, set } from 'firebase/database';
 import cardData from '../data/card-data.json';
 
-
-
-export default function Todo({posts, setPosts}) {
-
+export default function Todo() {
+  const [posts, setPosts] = useState([]);
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [category, setCategory] = useState('');
   const [image, setImage] = useState(null);
-
-  const [cardTitle, setCardTitle] = useState([]);
-
-  const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [loading, setLoading] = useState(true);
   const [appliedCategory, setAppliedCategory] = useState('');
+  const [filteredPosts, setFilteredPosts] = useState(posts);
+
+  const db = getDatabase();
+  const postsRef = ref(db, 'posts');
+
+  useEffect(() => {
+
+    const offFunction = onValue(postsRef, (snapshot) => {
+      const data = snapshot.val();
+      let loadedPosts = [];
+      if (data) {
+        loadedPosts = Object.keys(data).map(key => ({
+          id: key,
+          ...data[key]
+        }));
+      }
+      setPosts(loadedPosts);
+      setFilteredPosts(loadedPosts);
+      setLoading(false);
+    });
+
+    return () => offFunction();  
+  }, []);
+
+  useEffect(() => {
+    let filtered;
+    if (appliedCategory === '') {
+      filtered = posts;
+    } else {
+      filtered = posts.filter(post => post.category === appliedCategory);
+    }
+    setFilteredPosts(filtered);
+  }, [appliedCategory, posts]);
 
   const handlePost = () => {
-
+    const newPostRef = push(postsRef);
     let newTitle = title || "Post from user";
+    set(newPostRef, {
+      title : newTitle,
+      text,
+      category,
+      image
+    }).then(() => {
+      setTitle('');
+      setText('');
+      setCategory('');
+      setImage(null);
+    }).catch(error => {
+      console.error("Failed to add new post: ", error);
+    });
 
-    const newPost = {id: posts.length + 1, title: newTitle, text, category, image};
-
-
-    setPosts([...posts, newPost]);
-    setTitle('');
-    setText('');
-    setCategory('');
-    setImage(null);
   };
 
-  useEffect(
-    () => {
-      const titles = cardData.map(card => card.title);
-      setCardTitle(titles);
-      setFilteredPosts(posts);
-    },
-    [posts]
-  );
-
   const handleCategory = (currCategory) => {
-
     if (currCategory === appliedCategory) {
 
       setFilteredPosts(posts);
@@ -48,7 +72,7 @@ export default function Todo({posts, setPosts}) {
       setAppliedCategory('');
       return;
     }
-    
+
 
     const filteredPosts = posts.filter(post => post.category === currCategory);
 
@@ -60,6 +84,9 @@ export default function Todo({posts, setPosts}) {
   return (
 
       <div className='container'>
+        {loading && <p>Loading posts...</p>}
+      {!loading && (
+        <>
 
         <div className='section'>
         <br></br><br></br>
@@ -90,8 +117,8 @@ export default function Todo({posts, setPosts}) {
             onChange={(event) => setCategory(event.target.value)}>
               <option value="" disabled>Evaluation</option>
               {
-                cardTitle.map((title, index) => (
-                  <option key={index} value={title}>{title}</option>
+                cardData.map((card, index) => (
+                  <option key={index} value={card.title}>{card.title}</option>
                 ))
               }
             </select>
@@ -106,10 +133,10 @@ export default function Todo({posts, setPosts}) {
             <input className='inputs' type="file" id="post-image" accept="image/*" 
             onChange={(event) => setImage(event.target.files[0])}/>
             <button id="post-button" className="btn btn-lg btn-primary" onClick={handlePost}>Post</button>
+            </div>
           </div>
-        </div>
-      </div>
-
-
+        </>
+      )}
+    </div>
   );
 }

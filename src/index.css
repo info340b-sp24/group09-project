@@ -179,6 +179,7 @@ footer {
   justify-content: start;
   flex-wrap: wrap;
   padding: 2rem;
+  margin: 20px;
 
 }
 
@@ -223,7 +224,7 @@ footer {
 .card {
   flex: 0 0 280px;
   background-color: white;
-  margin: 0.5rem;
+  margin: 0.75rem;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.23), 0 1px 3px rgba(0, 0, 0, 0.23);
 }
@@ -259,6 +260,12 @@ footer {
   display: none;
 }
 
+.alert.alert-secondary{
+  margin-top: 30px;
+  
+
+}
+
 
 
 @media (min-width: 768px) {
@@ -278,12 +285,16 @@ footer {
     width: 25%;
     height: auto;
     display: flex;
+    padding-left: 60px;
   }
 
   .sec2 {
     width: 75%;
     height: auto;
     justify-content: center;
+  }
+  .alert.alert-secondary{
+    margin-left: 30px;
   }
 
 }
@@ -465,3 +476,26 @@ button {
   color: #373636;
   margin-left: auto;
 }
+/* detail */
+.detail-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #333; 
+}
+.detail-style h2 {
+  color: #333; 
+  margin-bottom: 20px;
+}
+
+.fixed-size-image{
+  width: 80%;
+  margin-bottom: 20px;
+}
+

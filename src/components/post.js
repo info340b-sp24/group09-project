@@ -1,34 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getDatabase, ref, onValue,} from 'firebase/database';
 
-
-export default function Post({posts}) {
-
-  const {id} = useParams();
+export default function Post() {
+  const { id } = useParams();
   const [post, setPost] = useState(null);
-
   const [reply, setReply] = useState('');
   const [replies, setReplies] = useState([]);
 
-  useEffect(
-    () => {
-      const findPost = posts && posts.find(post => post.id === parseInt(id));
-      setPost(findPost);
-    }, 
-    [id, posts]
-  );
+  useEffect(() => {
+    const db = getDatabase();
+    const postRef = ref(db, `posts/${id}`);
+
+    const offFunction = onValue(postRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        setPost({ id: snapshot.key, ...data });
+      } else {
+        setPost(null);
+      }
+    });
+
+    return () => offFunction();  
+  }, [id]);
 
   const handleReply = () => {
     const newReply = {
       id: replies.length,
       text: reply
     };
-
     setReplies([...replies, newReply]);
     setReply('');
-  
   };
-
 
   return (
     <div className='container'>
@@ -46,8 +49,6 @@ export default function Post({posts}) {
         </>
         )
       }
-      
-      
 
       <section>
         <textarea className='text' placeholder='Reply to this post' value={reply} 
@@ -64,6 +65,9 @@ export default function Post({posts}) {
         )
       )}
       </section>
+      {!post && (
+        <p>Loading post...</p>
+      )}
     </div>
-  )
-}
+  );
+};
