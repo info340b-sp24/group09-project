@@ -34,10 +34,14 @@ export default function Post({posts}) {
     <div className='container'>
       {post && (
         <>
-        <section className="section-spacing">
-          <h2 className='h2'>{post.title}</h2>
+        <br></br><br></br>
+        <section>
+          <h2 className='post-title'>{post.title}</h2>
           <br></br>
           <p className='para'>{post.text}</p>
+
+          {post.image && <img className='post-img' src={URL.createObjectURL(post.image)} alt= "image used for posts"/>}
+          
         </section>
         </>
         )
@@ -45,19 +49,18 @@ export default function Post({posts}) {
       
       
 
-      <section className="section-spacing">
-        <textarea placeholder='Reply to this post' value={reply} 
+      <section>
+        <textarea className='text' placeholder='Reply to this post' value={reply} 
         onChange={(event) => setReply(event.target.value)}/>
 
         <button id="reply-buttom" className="btn btn-lg btn-primary" 
         onClick={handleReply}>Reply</button>
       </section>
 
-      <section>
-        <br></br><br></br>
-        <h3>Replies</h3>
+      <section className='reply-section'>
+        <h3 className='replies-header'>Replies</h3>
         {replies.map(reply => (
-          <div key={reply.id}>{reply.text}</div>
+          <div className='reply' key={reply.id}>{reply.text}</div>
         )
       )}
       </section>

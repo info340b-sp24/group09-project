@@ -18,7 +18,10 @@ export default function Todo({posts, setPosts}) {
 
   const handlePost = () => {
 
-    const newPost = {id: posts.length + 1, title, text, category, image};
+    let newTitle = title || "Post from user";
+
+    const newPost = {id: posts.length + 1, title: newTitle, text, category, image};
+
 
     setPosts([...posts, newPost]);
     setTitle('');
@@ -53,6 +56,7 @@ export default function Todo({posts, setPosts}) {
   setAppliedCategory(currCategory);
   };
 
+
   return (
 
       <div className='container'>
@@ -63,12 +67,16 @@ export default function Todo({posts, setPosts}) {
         </div>
 
         <div className='section'>
-          <h3>Posts</h3>
-
+          <div className='title-container'>
+          <h3 >Posts</h3>
+          <p className='filter-message'>Click the category to filter the posts!</p>
+          </div>
           {filteredPosts.map((post) => (
             <div className='post-header' key={post.id}>
               <Link to={`/post/${post.id}`}><h5>{post.title}</h5></Link>
-               {post.category && (<small className='post-category' onClick={() => handleCategory(post.category)}>{post.category}</small>)}
+               {post.category && (
+               <small className='post-category' onClick={() => handleCategory(post.category)}>{post.category}</small>
+               )}
             </div>
           ))}
         </div>
@@ -94,6 +102,7 @@ export default function Todo({posts, setPosts}) {
             <textarea className='text' id="post-text" placeholder="Write your post here"
             value={text}
             onChange={(event) => setText(event.target.value)}></textarea>
+            <p className='message'>Option: One picture is allowed per post</p>
             <input className='inputs' type="file" id="post-image" accept="image/*" 
             onChange={(event) => setImage(event.target.files[0])}/>
             <button id="post-button" className="btn btn-lg btn-primary" onClick={handlePost}>Post</button>
