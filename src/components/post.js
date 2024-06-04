@@ -43,8 +43,8 @@ export default function Post() {
           <br></br>
           <p className='para'>{post.text}</p>
 
-          {post.image && <img className='post-img' src={URL.createObjectURL(post.image)} alt= "image used for posts"/>}
-          
+          {post.image && <img className='post-img' src={post.image} alt="image used for posts" />}
+
         </section>
         </>
         )
