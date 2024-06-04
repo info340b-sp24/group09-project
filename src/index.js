@@ -1,32 +1,43 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './components/App';
-import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import Home from './component/home/home';
+import Planner from './component/planner/planner';
+import Todo from './component/todo/todo';
+import About from './component/about/about'
+import Contact from './component/contact/contact'
+import Post from './component/post/post'
+import Itinerary from './component/itinerary/itinerary'
+import Pike from './component/pike/pike';
+import Footer from './component/footer/footer';
+import 'bootstrap/dist/css/bootstrap.css';
+import Form from './component/form/form';
+import Registration from './component/registration/registration';
+import Login from './component/login/login';
 
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDch-2bjdRWx1a_-VG5RjVItd5cgZphuKk",
-  authDomain: "info340sp-group09-project.firebaseapp.com",
-  projectId: "info340sp-group09-project",
-  storageBucket: "info340sp-group09-project.appspot.com",
-  messagingSenderId: "971379090242",
-  appId: "1:971379090242:web:6fce731a3e7f93d4689edb"
-};
-
-// Initialize Firebase
-initializeApp(firebaseConfig);
-
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<App />} >
+      <Route path='' element={<Home />} />
+      <Route path="planner" element={<Planner />} />
+      <Route path="todo" element={<Todo />} />
+      <Route path="about" element={<About />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="form" element={<Form />} />
+      <Route path="post" element={<Post />} />
+      <Route path="itinerary" element={<Itinerary />} />
+      <Route path="pike" element={<Pike />} />
+      <Route path="footer" element={<Footer />} />
+      <Route path="registration" element={<Registration />} />
+      <Route path="login" element={<Login />} />
+    </Route>
+  )
+)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
 );
-

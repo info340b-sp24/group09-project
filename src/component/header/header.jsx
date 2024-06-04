@@ -1,4 +1,5 @@
 import React from 'react';
+import './header.css'; 
 import {NavLink} from 'react-router-dom'
 
 export default function Header() {
@@ -28,6 +29,12 @@ export default function Header() {
             </li>
             <li className="navItemStyle">
               <NavLink to={"/contact"} className="linkStyle">Contact</NavLink>
+            </li>
+            <li className="navItemStyle">
+              <NavLink to={"/form"} className="linkStyle">Form</NavLink>
+            </li>
+            <li className="navItemStyle">
+              <NavLink to={"/Login"} className="linkStyle">Login</NavLink>
             </li>
           </ul>
         </div>

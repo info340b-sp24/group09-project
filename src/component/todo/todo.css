@@ -1,0 +1,38 @@
+.container {
+  padding: 20px;
+}
+
+h1 {  
+  text-align: center;
+  color: black;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+.post-container {
+  display: block;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.inputs,
+.text,
+button {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.selection {
+  border: 2px solid black;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
