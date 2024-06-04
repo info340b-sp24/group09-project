@@ -1,0 +1,12 @@
+.h2 {
+    font-size: 42px;
+    font-weight: bold;
+  }
+  .para {
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  .section-spacing {
+    margin-top: 2rem; 
+  }
