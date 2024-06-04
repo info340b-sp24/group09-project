@@ -76,6 +76,22 @@ export default function Todo() {
     });
   };
 
+  const handleCategory = (currCategory) => {
+    if (currCategory === appliedCategory) {
+
+      setFilteredPosts(posts);
+
+      setAppliedCategory('');
+      return;
+    }
+
+
+    const filteredPosts = posts.filter(post => post.category === currCategory);
+
+  setFilteredPosts(filteredPosts);
+  setAppliedCategory(currCategory);
+  };
+
   return (
     <div className='container'>
       {loading && <p>Loading posts...</p>}
@@ -95,7 +111,7 @@ export default function Todo() {
               <div className='post-header' key={post.id}>
                 <Link to={`/post/${post.id}`}><h5>{post.title}</h5></Link>
                 {post.category && (
-                <small className='post-category' onClick={() => setAppliedCategory(post.category)}>{post.category}</small>
+                <small className='post-category' onClick={() => handleCategory(post.category)}>{post.category}</small>
                 )}
               </div>
             ))}
