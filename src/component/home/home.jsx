@@ -8,11 +8,11 @@ import './home.css';
 import { Link } from 'react-router-dom';
 
 function PlaceCard(props) {
-  const { title, description, altTag, link } = props;
+  const { image, title, description, altTag, link } = props;
 
   return (
     <div className="card">
-      
+      <img src={image} className="card-img-top" alt={altTag} />
       <div className="card-body">
         <p className="card-text">{title}</p>
         <p className="card-text">{description}</p>

@@ -13,6 +13,9 @@ function Registration() {
     password: ''
   });
 
+  // Add state variable to track user role
+  const [userRole, setUserRole] = useState('regular');
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,17 +26,24 @@ function Registration() {
     });
   };
 
+  // Function to handle role change
+  const handleRoleChange = (e) => {
+    setUserRole(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
       const user = userCredential.user;
 
+      // Save user data including role
       await setDoc(doc(db, 'users', user.uid), {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
-        username: formData.username
+        username: formData.username,
+        role: userRole // Include user role in the user document
       });
 
       alert(`Registration successful! Email: ${formData.email}`);
@@ -53,6 +63,11 @@ function Registration() {
         <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
         <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} required />
         <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+        {/* Dropdown to select user role */}
+        <select value={userRole} onChange={handleRoleChange}>
+          <option value="regular">Regular User</option>
+          <option value="admin">Admin User</option>
+        </select>
         <button type="submit">Register</button>
       </form>
     </div>
